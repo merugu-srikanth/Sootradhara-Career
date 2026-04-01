@@ -1,14 +1,8 @@
 import Link from "next/link";
 import JobCard from "../components/JobCard";
-import SectionTitle from "../components/SectionTitle";
 import AnimatedSection from "../components/AnimatedSection";
 import {
   FiArrowRight,
-  FiCheckCircle,
-  FiFilter,
-  FiMousePointer,
-  FiRefreshCw,
-  FiExternalLink,
 } from "react-icons/fi";
 import HeroSection from "@/components/HeroSection";
 

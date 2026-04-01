@@ -1,6 +1,15 @@
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
+  turbopack: {
+    // Ensures Next.js roots correctly in nested/workspace environments (Vercel warning fix)
+    root: __dirname,
+  },
 };
 
 export default nextConfig;
