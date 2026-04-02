@@ -1,66 +1,63 @@
+// "use client";
 import Link from "next/link";
 import { FiCalendar, FiMapPin, FiBriefcase } from "react-icons/fi";
 
 export default function JobCard({
-  title = "Govt Job Title",
-  org = "Organization Name",
-  lastDate = "To Be Announced",
-  location = "India",
-  slug = "example-job",
+  title,
+  org,
+  lastDate,
+  location,
+  slug,
+  description,
 }) {
   return (
-    <div className="bg-white rounded-2xl   border-gray-100 hover-shadow transition-all duration-300 flex flex-col h-full group">
-      {/* Dynamic Badge */}
-      <div className="flex justify-between items-start mb-4">
-        <span className="bg-orange-100 text-orange-600 text-xs font-bold px-3 py-1 rounded-full border border-orange-200">
-          New Alert
-        </span>
-        <button className="text-gray-300 hover:text-green-500 transition-colors">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
-            />
-          </svg>
-        </button>
+    <div className="group relative bg-white rounded-2xl shadow-md border border-orange-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+      
+      {/* Glow Effect */}
+      <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+      {/* Top Gradient */}
+      <div className="h-1.5 w-full bg-gradient-to-r from-orange-400 to-orange-500"></div>
+
+      <div className="p-5 flex flex-col justify-between h-full relative z-10">
+        
+        {/* Title */}
+        <div>
+          <h2 className="text-lg font-bold text-gray-800 leading-snug line-clamp-2 group-hover:text-orange-600 transition">
+            {title}
+          </h2>
+          
+
+          <p className="text-sm text-gray-500 mt-1 flex items-center gap-1">
+            <FiBriefcase className="text-orange-500"/> {org}
+          </p>
+          <p className="text-sm text-gray-600 mt-2 line-clamp-2">
+  {description}
+</p>
+
+          <p className="text-sm text-gray-600 mt-2 flex items-center gap-1">
+            <FiMapPin  className="text-orange-500"/> {location}
+          </p>
+        </div>
+
+        {/* Bottom */}
+        <div className="mt-5 flex justify-between items-center">
+          
+          <div className="flex items-center gap-1 text-sm text-gray-500">
+            <FiCalendar className="text-orange-500"/>{ " "}
+            <span className="font-semibold text-orange-600">
+              Deadline: {lastDate}
+            </span>
+          </div>
+
+          {/* Button */}
+          <Link href={`/jobs/${slug}`}>
+            <button className="px-4 py-2 text-sm font-semibold rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 hover:scale-105">
+              View More →
+            </button>
+          </Link>
+        </div>
       </div>
-
-      <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-500 transition-colors line-clamp-2">
-        {title}
-      </h3>
-
-      <div className="space-y-2 mb-6 flex-grow">
-        <div className="flex items-center text-gray-600 text-sm">
-          <FiBriefcase className="mr-2 text-green-600" />
-          <span className="font-medium text-gray-700">{org}</span>
-        </div>
-        <div className="flex items-center text-gray-500 text-sm">
-          <FiCalendar className="mr-2 text-orange-500" />
-          <span>
-            Last Date:{" "}
-            <span className="font-semibold text-gray-800">{lastDate}</span>
-          </span>
-        </div>
-        <div className="flex items-center text-gray-500 text-sm">
-          <FiMapPin className="mr-2 text-gray-400" />
-          <span>{location}</span>
-        </div>
-      </div>
-
-      <Link
-        href={`/job/${slug}`}
-        className="w-full py-3 px-4 rounded-xl bg-gray-50 text-center text-green-700 font-semibold border border-gray-200 group-hover:bg-gradient-primary group-hover:border-transparent group-hover:text-orange-500 transition-all duration-300 block"
-      >
-        View Details
-      </Link>
     </div>
   );
 }

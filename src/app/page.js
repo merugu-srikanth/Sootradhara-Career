@@ -5,52 +5,66 @@ import {
   FiArrowRight,
 } from "react-icons/fi";
 import HeroSection from "@/components/HeroSection";
+import JobCategories from "@/components/JobCategories";
+import StudentCareerSession from "@/components/StudentCareerSession";
 
 export default function Home() {
-  const dummyJobs = [
-    {
-      title: "AP Police Constable Recruitment 2026",
-      org: "AP Police",
-      lastDate: "20 Jan 2026",
-      location: "Andhra Pradesh",
-      slug: "ap-police-constable-recruitment-2026",
-    },
-    {
-      title: "Railway RRB NTPC Notification",
-      org: "Indian Railways",
-      lastDate: "15 Feb 2026",
-      location: "All India",
-      slug: "railway-jobs-2026-notification",
-    },
-    {
-      title: "SBI Probationary Officer (PO)",
-      org: "State Bank of India",
-      lastDate: "10 Mar 2026",
-      location: "All India",
-      slug: "sbi-po-2026",
-    },
-    {
-      title: "TSPSC Group 2 Services",
-      org: "Telangana PSC",
-      lastDate: "05 Feb 2026",
-      location: "Telangana",
-      slug: "tspsc-group-2",
-    },
-    {
-      title: "SSC CGL Examination 2026",
-      org: "Staff Selection Commission",
-      lastDate: "28 Feb 2026",
-      location: "All India",
-      slug: "ssc-cgl-2026",
-    },
-    {
-      title: "UPSC Civil Services Prelims",
-      org: "UPSC",
-      lastDate: "25 Mar 2026",
-      location: "All India",
-      slug: "upsc-civil-services-2026",
-    },
-  ];
+ const dummyJobs = [
+  {
+    title: "AP Police Constable  2026",
+    org: "AP Police",
+    lastDate: "20 Jan 2026",
+    location: "Andhra Pradesh",
+    slug: "ap-police-constable-recruitment-2026",
+    description:
+      "Andhra Pradesh Police invites applications for Constable posts. Candidates must meet physical standards and eligibility criteria. A great opportunity for defense aspirants.",
+  },
+  {
+    title: "Railway RRB NTPC Notification",
+    org: "Indian Railways",
+    lastDate: "15 Feb 2026",
+    location: "All India",
+    slug: "railway-jobs-2026-notification",
+    description:
+      "Railway Recruitment Board (RRB) NTPC exam for clerk, typist, and station master roles. Open to graduates across India with attractive salary and job security.",
+  },
+  {
+    title: "SBI Probationary Officer (PO)",
+    org: "State Bank of India",
+    lastDate: "10 Mar 2026",
+    location: "All India",
+    slug: "sbi-po-2026",
+    description:
+      "State Bank of India recruits Probationary Officers. Candidates with graduation can apply. Offers high salary, career growth, and banking sector exposure.",
+  },
+  {
+    title: "TSPSC Group 2 Services",
+    org: "Telangana PSC",
+    lastDate: "05 Feb 2026",
+    location: "Telangana",
+    slug: "tspsc-group-2",
+    description:
+      "Telangana Public Service Commission Group 2 recruitment for administrative roles. Ideal for graduates seeking government jobs in Telangana state.",
+  },
+  {
+    title: "SSC CGL Examination 2026",
+    org: "Staff Selection Commission",
+    lastDate: "28 Feb 2026",
+    location: "All India",
+    slug: "ssc-cgl-2026",
+    description:
+      "SSC Combined Graduate Level exam for central government jobs. Includes posts in ministries, departments, and organizations across India.",
+  },
+  {
+    title: "UPSC Civil Services Prelims",
+    org: "UPSC",
+    lastDate: "25 Mar 2026",
+    location: "All India",
+    slug: "upsc-civil-services-2026",
+    description:
+      "UPSC Civil Services exam for IAS, IPS, IFS and other top government roles. One of the most prestigious exams in India for graduates.",
+  },
+];
 
   const states = [
     "Goa",
@@ -136,7 +150,7 @@ export default function Home() {
             {dummyJobs.map((job, index) => (
               <AnimatedSection key={job.slug} animation="fade-up">
                 <div className="group relative ">
-                  <div className="bg-white p-6 rounded-[1.8rem] h-full shadow-sm group-hover:shadow-none">
+                  <div className="bg-white rounded-[1.8rem] h-full shadow-sm group-hover:shadow-none">
                     <JobCard {...job} />
                   </div>
                 </div>
@@ -154,6 +168,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <StudentCareerSession />
 
       {/* --- MOVING STATES SECTION --- */}
       <section className="py-24 bg-orange-50/50">
@@ -229,6 +245,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <JobCategories />
 
       {/* --- CTA SECTION --- */}
       <section className="py-20 px-6">
