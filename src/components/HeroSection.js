@@ -29,7 +29,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-scree flex items-center overflow-hidden bg-[#0c0500] font-sans">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0c0500] font-sans">
       {/* --- Background Image Layer --- */}
       <div
         className="absolute bg-animate inset-0 bg-cover bg-center bg-no-repeat"
